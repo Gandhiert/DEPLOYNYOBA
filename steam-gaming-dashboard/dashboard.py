@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
-
+import os
 
 # Page config
 st.set_page_config(
@@ -32,17 +32,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+st.write("Current directory:", os.getcwd())
+st.write("Files in directory:", os.listdir('.'))
+
 # Load data
 @st.cache_data
 def load_data():
     try:
-import os
-
-# Check current directory and files
-st.write("Current directory:", os.getcwd())
-st.write("Files in directory:", os.listdir('.'))
-
-# Try loading with error handling
 try:
     games_df = pd.read_parquet('games.parquet')
     st.success("✅ games.parquet loaded")
