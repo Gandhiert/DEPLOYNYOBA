@@ -39,26 +39,9 @@ st.write("Files in directory:", os.listdir('.'))
 @st.cache_data
 def load_data():
     try:
-try:
-    games_df = pd.read_parquet('games.parquet')
-    st.success("✅ games.parquet loaded")
-except Exception as e:
-    st.error(f"❌ games.parquet error: {e}")
-    games_df = None
-    
-try:
-    reviews_df = pd.read_parquet('reviews.parquet')
-    st.success("✅ reviews.parquet loaded")
-except Exception as e:
-    st.error(f"❌ reviews.parquet error: {e}")
-    reviews_df = None
-    
-try:
-    logs_df = pd.read_parquet('logs.parquet')
-    st.success("✅ logs.parquet loaded")
-except Exception as e:
-    st.error(f"❌ logs.parquet error: {e}")
-    logs_df = None
+        games_df = pd.read_parquet('games.parquet')
+        reviews_df = pd.read_parquet('reviews.parquet') 
+        logs_df = pd.read_parquet('logs.parquet')
         return games_df, reviews_df, logs_df
     except Exception as e:
         st.error(f"Error loading data: {e}")
