@@ -39,9 +39,9 @@ st.write("Files in directory:", os.listdir('.'))
 @st.cache_data
 def load_data():
     try:
-        games_df = pd.read_parquet('games.parquet')
-        reviews_df = pd.read_parquet('reviews.parquet') 
-        logs_df = pd.read_parquet('logs.parquet')
+        games_df = pd.read_parquet('steam-gaming-dashboard/games.parquet')
+        reviews_df = pd.read_parquet('steam-gaming-dashboard/reviews.parquet') 
+        logs_df = pd.read_parquet('steam-gaming-dashboard/logs.parquet')
         return games_df, reviews_df, logs_df
     except Exception as e:
         st.error(f"Error loading data: {e}")
